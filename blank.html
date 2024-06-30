@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Filtering</title>
+<style>
+  /* Optional: Add styles for buttons */
+  .filter-btn {
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+
+<!-- Filter buttons -->
+<div id="filter-buttons">
+    <button class="filter-btn" data-category="b1">Category 1</button>
+    <button class="filter-btn" data-category="b2">Category 2</button>
+    <button class="filter-btn" data-category="b3">Category 3</button>
+    <button class="filter-btn" data-category="all">Show All</button>
+  </div>
+<!-- Section with projects -->
+<section id="three">
+  <div class="container">
+    <h3>CONSOLIDATIONS</h3>
+    <p>Combining academic rigor with hands-on experience, I've navigated diverse datasets and conducted in-depth research, illuminating pathways for data-driven solutions. With academic externships enriching my practical insights, I've undertaken projects spanning from statistical analysis to machine learning applications, showcasing a commitment to innovation and excellence.</p>
+    <div class="features">
+      <article class="project" data-category="b1">
+        <a href="https://github.com/GIRIAYUSH/MediQNet-A-MultiModel-Transformer-Based-Medical-VQA-System" target="_blank" class="image"><img src="images/pic01.jpg" alt="" /></a>
+        <div class="inner">
+          <h4>MediQNet a VQA system</h4>
+          <p>Enhancing Open-Ended Medical Question Answering with Multimodal Transformer Fusion: Integrating BioBERT and SWIN for Improved Performance</p>
+        </div>
+      </article>
+      <!-- Add more projects with appropriate data-category attribute -->
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // Function to show/hide projects based on category
+  function filterProjects(category) {
+    const projects = document.querySelectorAll('.project');
+    projects.forEach(project => {
+      const projectCategory = project.getAttribute('data-category');
+      if (category === 'all' || projectCategory === category) {
+        project.style.display = 'block';
+      } else {
+        project.style.display = 'none';
+      }
+    });
+  }
+
+  // Add event listeners to filter buttons
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      filterProjects(category);
+    });
+  });
+</script>
+
+</body>
+</html>
